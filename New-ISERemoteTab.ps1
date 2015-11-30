@@ -15,6 +15,19 @@ The name of the server to connect. This parameter has an alias of CN.
 A PSCredential or user name to be used for all specified computers. Note that if you specify a credential, it will temporarily be exported to disk so that each new PowerShell tab can re-use it. The file is deleted at the end of the command.
 .Parameter PromptforCredential
 Use this parameter if you want to prompt for a credential for each connection. No credential information is written to disk.
+.Parameter Authentication
+Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential". The default value is "Default".
+.Parameter CertificateThumbprint
+Specifies the digital public key certificate (X509) of a user account that has permission to perform this action. Enter the certificate thumbprint of the certificate.
+.Parameter ConfigurationName
+Specifies the session configuration that is used for the interactive session.
+.Parameter Port
+Specifies the network port on the remote computer used for this command. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).
+.Parameter SessionOption
+Sets advanced options for the session. Enter a SessionOption object, such as one that you create by using the New-PSSessionOption cmdlet, or a hash table in which the keys are session option names and the values are session option values.
+.Parameter UseSSL
+Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
+
 .Example
 PS C:\> New-ISERemoteTab chi-dc01
 .Example
@@ -23,6 +36,12 @@ Create remote tabs for each computer in the list using alternate credentials.
 .Example
 PS C:\> New-ISERemoteTab dmz-srv01,dmz,srv02,dmz,srv03 -prompt
 Create remote tabs for each computer and prompt for a unique set of credentials for each.
+.Example
+PS C:\> New-ISERemoteTab dmz-eft01 -Credential domain\administrator -Authentication CredSSP
+Create a remote tab for dmz-eft01 with alternate credentials using CredSSP for authentication.
+.Example
+PS C:\> New-ISERemoteTab dmz-eft01 -ConfigurationName Microsoft.Powershell32
+Create a remote tab for dmz-eft01 using the 32-bit configuration settings. The display name for this tab would be "dmz-eft01 Microsoft.Powershell32".
 .Notes
 Last Updated: 30 November 2015
 Author      : Jeff Hicks (http://twitter.com/JeffHicks)
