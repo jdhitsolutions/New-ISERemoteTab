@@ -9,6 +9,8 @@ Create remote tabs in the PowerShell ISE.
 .Description
 This command will create one or more remote tabs in the PowerShell ISE. You could use this to programmatically to open multiple remote tabs.
 The default behavior is to open tabs with your current credentials. But you can specify a single credential for all remote connections, or prompt for a credential for each connection. You might need this if some of the machines require different credentials.
+
+The command also supports additional parameters from Enter-PSSession. Be aware that if you specify multiple machines and one of these parameters, such as UseSSL, that parameter will apply to all remote connections.
 .Parameter Computername
 The name of the server to connect. This parameter has an alias of CN.
 .Parameter Credential
@@ -45,9 +47,11 @@ Create a remote tab for dmz-eft01 using the 32-bit configuration settings. The d
 .Notes
 Last Updated: 30 November 2015
 Author      : Jeff Hicks (http://twitter.com/JeffHicks)
-version     : 1.1
+version     : 1.2
+
 Learn more about PowerShell:
 http://jdhitsolutions.com/blog/essential-powershell-resources/
+
   ****************************************************************
   * DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED *
   * THOROUGHLY IN A LAB ENVIRONMENT. USE AT YOUR OWN RISK.  IF   *
@@ -183,7 +187,7 @@ End {
     $noprofileField.SetValue($pshost,$False)
 
    #delete credential file if it exists
-    if (Test-Path -path $credPath) {
+    if ($credpath -AND (Test-Path -path $credPath)) {
         Write-Verbose "Deleting $credpath"
         del $credPath -Force
     }
