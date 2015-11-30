@@ -35,9 +35,9 @@ PS C:\> New-ISERemoteTab dmz-srv01,dmz,srv02,dmz,srv03 -prompt
 Create remote tabs for each computer and prompt for a unique set of credentials for each.
 
 .Notes
-Last Updated: 29 November 2015
-Author      : @JeffHicks
-version     : 1.0
+Last Updated: 30 November 2015
+Author      : Jeff Hicks (http://twitter.com/JeffHicks)
+version     : 1.1
 
 Learn more about PowerShell:
 http://jdhitsolutions.com/blog/essential-powershell-resources/
@@ -118,7 +118,6 @@ foreach ($computer in $computername) {
       Start-Sleep -Milliseconds 10
     } until ($newTab.CanInvoke)
     
-
     if ($PromptForCredential) {
         Write-Verbose "Prompting for credential"
         $NewTab.invoke("`$cred = Get-Credential -message 'Enter a credential for $($newtab.DisplayName)' -username $env:userdomain\$env:username")
@@ -148,7 +147,9 @@ foreach ($computer in $computername) {
         } until ($newTab.CanInvoke)
     
     } #foreach command
+
  } #foreach computer
+
 } #process
 
 End {
