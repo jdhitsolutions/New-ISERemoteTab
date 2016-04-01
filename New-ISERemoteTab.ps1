@@ -1,8 +1,6 @@
 #requires -version 4.0
 #requires -module ISE
 
-#TODO: CREATE A GUI
-
 Function New-ISERemoteTab {
 
 <#
@@ -50,7 +48,14 @@ Sets advanced options for the session. Enter a SessionOption object, such as one
 Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
 
 .PARAMETER Profile
-The path to a local file with PowerShell commands to be executed remotely upon connection. This is a way to run a profile script.
+The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. Here is an profile script example:
+
+# Sample remote profile script
+cd c:\
+cls
+Get-WMIObject Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
+
+Do not use any block comments in your remote profile script. See examples for additional help.
 
 .EXAMPLE
 PS C:\> New-ISERemoteTab chi-dc01
@@ -76,10 +81,14 @@ Create a remote tab for dmz-eft01 using the 32-bit configuration settings. The d
 PS C:\> New-ISERemoteTab chi-core01,chi-core02 -profile c:\scripts\remote.ps1
 Create remote tabs for computers CHI-CORE01 and CHI-CORE02. Upon connection remotely run the commands in the local file c:\scripts\remote.ps1.
 
+.EXAMPLE
+PS C:\> import-csv s:\computers.csv | where { test-wsman $_.computername -ErrorAction SilentlyContinue} | Out-GridView -Title "Select computers" -OutputMode Multiple | New-ISERemoteTab -Profile S:\RemoteProfile.ps1
+
+Import a list of computers and filter those that respond to Test-WSMan. This list is then piped to Out-Gridview so that you can select one or more computers to connect to using a remote profile script and current credentials.
 .NOTES
-Last Updated: 28 January 2016
+Last Updated: 30 March 2016
 Author      : Jeff Hicks (http://twitter.com/JeffHicks)
-Version     : 1.3
+Version     : 1.3.1
 
 Learn more about PowerShell:
 http://jdhitsolutions.com/blog/essential-powershell-resources/
@@ -162,8 +171,8 @@ Begin {
     Write-Verbose ($PSBoundParameters | Out-String)
 
     #disable PowerShell profiles in new ISE tabs which speeds up the process
-    #thanks for Tobias Weltner for the guidance on this
-    Write-Verbose "temporarily disabling PowerShell profiles in new tabs"
+    #thanks for Tobias Weltner for the guidance on this.
+    Write-Verbose "Temporarily disabling PowerShell profiles in new tabs"
     $type = ([Microsoft.Windows.PowerShell.Gui.Internal.MainWindow].Assembly.GetTypes()).Where({ $_.Name -eq 'PSGInternalHost' })
     $currentField = $type.GetField('current', 'NonPublic,Static')
     $noprofileField = $type.GetField('noProfile', 'NonPublic,Instance')
@@ -214,6 +223,9 @@ foreach ($computer in $computername) {
     
     #insert the current computer nto the parameters for Test-WSMan
     $testParams.Computername = $computer
+
+    #remove configurationname from Test-WSMan
+    $testparams.Remove("ConfigurationName") | Out-Null
 
     #Verify Computer is accessible with Test-WSMan
     Try {
