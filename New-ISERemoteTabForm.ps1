@@ -21,6 +21,21 @@ $psise.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($Display,$Action,$shortcut) 
 
 .Example
 PS C:\> New-ISERemoteForm
+
+.NOTES
+NAME        :  New-ISERemoteTabForm
+LAST UPDATED:  May 4, 2016
+AUTHOR      :  Jeff Hicks (@JeffHicks)
+
+Learn more about PowerShell:
+http://jdhitsolutions.com/blog/essential-powershell-resources/
+
+  ****************************************************************
+  * DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED *
+  * THOROUGHLY IN A LAB ENVIRONMENT. USE AT YOUR OWN RISK.  IF   *
+  * YOU DO NOT UNDERSTAND WHAT THIS SCRIPT DOES OR HOW IT WORKS, *
+  * DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.             *
+  ****************************************************************
 #>
 
 [cmdletbinding()]
@@ -66,7 +81,8 @@ Add-Type –assemblyName WindowsBase
                 <Label x:Name="label5" Content="Certificate Thumbprint" HorizontalAlignment="Left" Margin="71,-4,0,0" VerticalAlignment="Top" />
                 <TextBox x:Name="textCertThumb" HorizontalAlignment="Left" Height="20" Margin="201,1,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275" ToolTip="Enter the certificate thumbprint for SSL connections" TabIndex="6"/>
                 <Label x:Name="label6" Content="Profile Script" HorizontalAlignment="Left" Margin="3,71,0,0" VerticalAlignment="Top" />
-                <TextBox x:Name="textScript" HorizontalAlignment="Left" Height="20" Margin="86,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="309" ToolTip="Enter the path to a PowerShell script to be invoked remotely" TabIndex="9"/>
+                <TextBox x:Name="textScript" HorizontalAlignment="Left" Height="20" Margin="86,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" ToolTip="Enter the path to a PowerShell script to be invoked remotely" TabIndex="9"/>
+                <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment = "Left" Margin="405,75,0,0" VerticalAlignment="Top" Width="75"/>
             </Grid>
         </GroupBox>
         <ComboBox x:Name="comboAuthentication" HorizontalAlignment="Left" Margin="336,190,0,0" VerticalAlignment="Top" Width="120" TabIndex="8">
@@ -91,7 +107,8 @@ $form = [windows.markup.xamlreader]::Load($reader)
 $connect = $form.FindName("btnConnect")
 
 'textComputername','textUserName','textConfiguration','textPort','textCertThumb',
-'textScript','textPassword','checkPromptCredential','checkSSL','comboAuthentication' |
+'textScript','textPassword','checkPromptCredential','checkSSL','comboAuthentication',
+'btnBrowse' |
 Foreach {
   Set-Variable -Name $_ -Value ($form.FindName($_))
 }
@@ -106,6 +123,15 @@ $textPassword.IsEnabled = $False
 $checkPromptCredential.Add_Unchecked({
 $textUserName.IsEnabled = $True
 $textPassword.IsEnabled = $True
+})
+
+$browse = $btnBrowse.add_Click({
+    $dlg = New-object Microsoft.Win32.OpenFileDialog
+    $dlg.DefaultExt = ".ps1"
+    $dlg.Filter = "PowerShell Scripts (*.ps1)|*.ps1"
+    If ($dlg.ShowDialog()) {
+        $textScript.text = $dlg.FileName
+    }
 })
 
 $connect.Add_Click({
