@@ -185,15 +185,23 @@ Begin {
     if ($credential.username -AND $pscmdlet.ParameterSetName -eq "credential") {
         #export credential to a temporary local file because each new tab is a new session
         $credPath = [System.IO.Path]::GetTempFileName()
-        $credential | Export-Clixml -Path $credpath
         Write-Verbose "Exporting credential for $($credential.username) to $credpath"
+        $credential | Export-Clixml -Path $credpath
         $cmdstring+= " -credential (Import-Clixml -path $credpath)"  
     }
+
+    #export session option to cliXML so that it can be read into the scriptblock
+    if ($SessionOption)  {
+        $optPath = [System.IO.Path]::GetTempFileName()
+        Write-Verbose "Exporting session options to $optPath"
+        $sessionOption | Export-Clixml -Path $optPath
+        $cmdstring += " -SessionOption (Import-cliXML -path $optPath)"
+      }
+             
     if ($Authentication)        {$cmdstring += " -authentication $Authentication"}
     if ($CertificateThumbprint) {$cmdstring += " -CertificateThumbprint $CertificateThumbprint"}
     if ($ConfigurationName)     {$cmdstring += " -configurationname $ConfigurationName"}
     if ($Port)                  {$cmdstring += " -Port $Port"}
-    if ($SessionOption)         {$cmdstring += " -SessionOption $SessionOption"}
     if ($UseSSL)                {$cmdstring += " -UseSSL"}
 
 } #begin
@@ -210,6 +218,9 @@ Process {
     if ($profile) {
         #remove profile parameter since Test-WSMan won't recognize it
         $testParams.remove("profile") | Out-Null
+    }
+    if ($SessionOption) {
+        $testParams.remove("sessionoption") | Out-Null
     }
     if ($PromptForCredential) {
         $testParams.remove("promptforCredential") | Out-Null
@@ -297,6 +308,11 @@ End {
         del $credPath -Force
     }
 
+    #delete session option file if it exists
+    if ($optpath -AND (Test-Path -path $optPath)) {
+        Write-Verbose "Deleting $optpath"
+        del $optPath -Force
+    }
     Write-Verbose "Ending: $($MyInvocation.Mycommand)"
  
 } #end
