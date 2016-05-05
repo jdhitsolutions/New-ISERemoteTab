@@ -86,9 +86,9 @@ PS C:\> import-csv s:\computers.csv | where { test-wsman $_.computername -ErrorA
 
 Import a list of computers and filter those that respond to Test-WSMan. This list is then piped to Out-Gridview so that you can select one or more computers to connect to using a remote profile script and current credentials.
 .NOTES
-Last Updated: 30 March 2016
+Last Updated: 4 May 2016
 Author      : Jeff Hicks (http://twitter.com/JeffHicks)
-Version     : 1.3.1
+Version     : 1.4.2
 
 Learn more about PowerShell:
 http://jdhitsolutions.com/blog/essential-powershell-resources/
@@ -226,8 +226,10 @@ Process {
         $testParams.remove("promptforCredential") | Out-Null
     }
 
-foreach ($computer in $computername) {
-    
+#Using the ForEach() method to eke out a little bit better performance
+#when processing multiple computer names
+($Computername).Foreach({
+    $computer = $_    
     Write-Verbose "Processing: $computer"
     #insert each computername
     $cmd = $cmdstring -f $computer
@@ -292,7 +294,7 @@ foreach ($computer in $computername) {
     Catch {
         Write-Warning "Can't create remote tab to $computer. $($_.exception.Message)."
     }
- } #foreach computer
+ }) #foreach computer
 
 } #process
 
