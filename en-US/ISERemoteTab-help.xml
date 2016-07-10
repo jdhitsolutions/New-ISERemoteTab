@@ -18,7 +18,7 @@
 <maml:para>    
 Import-Module ISERemoteTab     
 $Display = "New Remote ISE Tab"     
-$Action = {New-ISEREmoteForm}     
+$Action = {New-ISEREmoteForm}
 $Shortcut = "Ctrl+Shift+T"     
 $ISERemoteProfile = "C:\Scripts\RemoteProfile.ps1"     
 $psise.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($Display,$Action,$shortcut) | Out-Null
@@ -27,16 +27,6 @@ $psise.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($Display,$Action,$shortcut) 
 <command:syntax><command:syntaxItem><maml:name>New-ISERemoteForm</maml:name>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>None</maml:name>
-<maml:Description><maml:para>
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false"></command:parameterValue>
-<dev:type><maml:name></maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-</command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
 </dev:type>
 <maml:description><maml:para>
@@ -53,38 +43,31 @@ $psise.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($Display,$Action,$shortcut) 
 </command:returnValues>
 <maml:alertSet><maml:alert><maml:para>
 NAME        :  New-ISERemoteTabForm
-LAST UPDATED:  May 4, 2016
+LAST UPDATED:  July 10, 2016
 AUTHOR      :  Jeff Hicks (@JeffHicks)
 </maml:para>
 <maml:para>
-Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources
-</maml:para>
-<maml:para>
-*************************************************************
-DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED
+Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/ 
+
+************************************************************
+DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED  
 THOROUGHLY IN A LAB ENVIRONMENT. USE AT YOUR OWN RISK.  IF 
 YOU DO NOT UNDERSTAND WHAT THIS SCRIPT DOES OR HOW IT WORKS,  
-DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
-*************************************************************
+DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING. 
+************************************************************
 </maml:para>
 </maml:alert>
 </maml:alertSet>
 <command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteForm</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteForm</dev:code>
 <dev:remarks><maml:para>
 </maml:para>
 </dev:remarks>
 </command:example>
 </command:examples>
-<command:relatedLinks>
- <maml:navigationLink>
-    <maml:linkText>Online Version:</maml:linkText>
-    <maml:uri></maml:uri>
- </maml:navigationLink>
- <maml:navigationLink>
-    <maml:linkText>New-ISERemoteTab</maml:linkText>
-    <maml:uri></maml:uri>
- </maml:navigationLink>
+<command:relatedLinks><maml:navigationLink><maml:linkText>New-ISERemoteTab</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
 </command:relatedLinks>
 </command:command>
 <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
@@ -103,16 +86,16 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>New-ISERemoteTab</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
 <maml:Description><maml:para>The name of the server to connect. This parameter has an alias of CN.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
 <dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="RunAs, cred, c"><maml:name>Credential</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="RunAs, cred, c"><maml:name>Credential</maml:name>
 <maml:Description><maml:para>A PSCredential or user name to be used for all specified computers. Note that if you specify a credential, it will temporarily be exported to disk so that each new PowerShell tab can re-use it. The file is deleted at the end of the command.
 </maml:para>
 </maml:Description>
@@ -121,34 +104,34 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 <maml:uri /></dev:type>
 <dev:defaultValue>[System.Management.Automation.PSCredential]::Empty</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
 <maml:Description><maml:para>Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential".
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
 <maml:Description><maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to perform this action. Enter the certificate thumbprint of the certificate.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
 <maml:Description><maml:para>Specifies the session configuration that is used for the interactive session.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Port</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Port</maml:name>
 <maml:Description><maml:para>Specifies the network port on the remote computer used for this command. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).
 </maml:para>
 </maml:Description>
@@ -157,33 +140,25 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 <maml:uri /></dev:type>
 <dev:defaultValue>0</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SessionOption</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>SessionOption</maml:name>
 <maml:Description><maml:para>Sets advanced options for the session. Enter a SessionOption object, such as one that you create by using the New-PSSessionOption cmdlet, or a hash table in which the keys are session option names and the values are session option values.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">PSSessionOption</command:parameterValue>
 <dev:type><maml:name>PSSessionOption</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UseSSL</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>UseSSL</maml:name>
 <maml:Description><maml:para>Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
 </maml:para>
 </maml:Description>
 <dev:type><maml:name>SwitchParameter</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue>false</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Profile</maml:name>
-<maml:Description><maml:para>
-The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. 
-Here is an profile script example:
-</maml:para>
-<maml:para>
-# Sample remote profile script
-cd c:\
-cls
-Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Profile</maml:name>
+<maml:Description><maml:para>The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. Here is an profile script example:     # Sample remote profile script     cd c:\     cls     Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
 </maml:para>
 <maml:para>Do not use any block comments in your remote profile script. See examples for additional help.
 </maml:para>
@@ -195,12 +170,76 @@ Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_
 </command:parameter>
 </command:syntaxItem>
 <command:syntaxItem><maml:name>New-ISERemoteTab</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
 <maml:Description><maml:para>The name of the server to connect. This parameter has an alias of CN.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
 <dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
+<maml:Description><maml:para>Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential".
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
+<maml:Description><maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to perform this action. Enter the certificate thumbprint of the certificate.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
+<maml:Description><maml:para>Specifies the session configuration that is used for the interactive session.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Port</maml:name>
+<maml:Description><maml:para>Specifies the network port on the remote computer used for this command. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+<dev:type><maml:name>Int32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>0</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>SessionOption</maml:name>
+<maml:Description><maml:para>Sets advanced options for the session. Enter a SessionOption object, such as one that you create by using the New-PSSessionOption cmdlet, or a hash table in which the keys are session option names and the values are session option values.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">PSSessionOption</command:parameterValue>
+<dev:type><maml:name>PSSessionOption</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>UseSSL</maml:name>
+<maml:Description><maml:para>Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>false</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Profile</maml:name>
+<maml:Description><maml:para>The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. Here is an profile script example:     # Sample remote profile script     cd c:\     cls     Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
+</maml:para>
+<maml:para>Do not use any block comments in your remote profile script. See examples for additional help.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
@@ -212,91 +251,18 @@ Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
-<maml:Description><maml:para>Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential".
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
-<maml:Description><maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to perform this action. Enter the certificate thumbprint of the certificate.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
-<maml:Description><maml:para>Specifies the session configuration that is used for the interactive session.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Port</maml:name>
-<maml:Description><maml:para>Specifies the network port on the remote computer used for this command. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
-<dev:type><maml:name>Int32</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>0</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SessionOption</maml:name>
-<maml:Description><maml:para>Sets advanced options for the session. Enter a SessionOption object, such as one that you create by using the New-PSSessionOption cmdlet, or a hash table in which the keys are session option names and the values are session option values.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">PSSessionOption</command:parameterValue>
-<dev:type><maml:name>PSSessionOption</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UseSSL</maml:name>
-<maml:Description><maml:para>Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Profile</maml:name>
-<maml:Description><maml:para>
-The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. 
-</maml:para>
-<maml:para>
-Here is an profile script example:
-</maml:para>
-<maml:para>
-cd c:\
-cls
-Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
-</maml:para>
-<maml:para>Do not use any block comments in your remote profile script. See examples for additional help.
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-<dev:type><maml:name>String</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true (ByPropertyName, ByValue)" position="1" aliases="cn"><maml:name>Computername</maml:name>
 <maml:Description><maml:para>The name of the server to connect. This parameter has an alias of CN.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
 <dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="RunAs, cred, c"><maml:name>Credential</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="RunAs, cred, c"><maml:name>Credential</maml:name>
 <maml:Description><maml:para>A PSCredential or user name to be used for all specified computers. Note that if you specify a credential, it will temporarily be exported to disk so that each new PowerShell tab can re-use it. The file is deleted at the end of the command.
 </maml:para>
 </maml:Description>
@@ -314,34 +280,34 @@ Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="auth, am"><maml:name>Authentication</maml:name>
 <maml:Description><maml:para>Specifies the mechanism that is used to authenticate the user's credentials. Valid values are "Default", "Basic", "Credssp", "Digest", "Kerberos", "Negotiate", and "NegotiateWithImplicitCredential".
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="thumb"><maml:name>CertificateThumbprint</maml:name>
 <maml:Description><maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to perform this action. Enter the certificate thumbprint of the certificate.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>ConfigurationName</maml:name>
 <maml:Description><maml:para>Specifies the session configuration that is used for the interactive session.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Port</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Port</maml:name>
 <maml:Description><maml:para>Specifies the network port on the remote computer used for this command. To connect to a remote computer, the remote computer must be listening on the port that the connection uses. The default ports are 5985 (the WinRM port for HTTP) and 5986 (the WinRM port for HTTPS).
 </maml:para>
 </maml:Description>
@@ -350,31 +316,26 @@ Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_
 <maml:uri /></dev:type>
 <dev:defaultValue>0</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SessionOption</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>SessionOption</maml:name>
 <maml:Description><maml:para>Sets advanced options for the session. Enter a SessionOption object, such as one that you create by using the New-PSSessionOption cmdlet, or a hash table in which the keys are session option names and the values are session option values.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">PSSessionOption</command:parameterValue>
 <dev:type><maml:name>PSSessionOption</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UseSSL</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>UseSSL</maml:name>
 <maml:Description><maml:para>Uses the Secure Sockets Layer (SSL) protocol to establish a connection to the remote computer. By default, SSL is not used.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
 <dev:type><maml:name>SwitchParameter</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue>false</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Profile</maml:name>
-<maml:Description><maml:para>The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. 
-Here is an profile script example:
-     # Sample remote profile script
-     cd c:\
-     cls
-     Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none"><maml:name>Profile</maml:name>
+<maml:Description><maml:para>The path to a local file with PowerShell commands to be executed remotely upon connection. Each command in the script must be on a single line. This is a way to run a profile script in the remote session. Here is an profile script example:     # Sample remote profile script     cd c:\     cls     Get-WMIObject -class Win32_OperatingSystem | Select @{Name="OS";Expression = {$_.Caption}},@{Name="PSVersion";Expression = {$PSVersionTable.PSVersion}}
 </maml:para>
 <maml:para>Do not use any block comments in your remote profile script. See examples for additional help.
 </maml:para>
@@ -382,7 +343,7 @@ Here is an profile script example:
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 <dev:type><maml:name>String</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
+<dev:defaultValue>none</dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>[string]</maml:name>
@@ -400,61 +361,59 @@ Here is an profile script example:
 </command:returnValue>
 </command:returnValues>
 <maml:alertSet><maml:alert><maml:para>
-Last Updated: 30 March 2016
+Last Updated: July 10, 2016  
 Author      : Jeff Hicks (http://twitter.com/JeffHicks)
-Version     : 1.3.1
-</maml:para>
-<maml:para>
-Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources
-</maml:para>
-<maml:para>
-*************************************************************
-DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED
+Version     : 1.5.0
+
+Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/ 
+
+************************************************************
+DO NOT USE IN A PRODUCTION ENVIRONMENT UNTIL YOU HAVE TESTED  
 THOROUGHLY IN A LAB ENVIRONMENT. USE AT YOUR OWN RISK.  IF 
 YOU DO NOT UNDERSTAND WHAT THIS SCRIPT DOES OR HOW IT WORKS,  
-DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
-*************************************************************
+DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING. 
+************************************************************
 </maml:para>
 </maml:alert>
 </maml:alertSet>
 <command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteTab chi-dc01</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteTab chi-dc01</dev:code>
 <dev:remarks><maml:para>Create a new remote tab for computer CHI-DC01 with default settings.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-<dev:code>PS C:\> Get-Content c:\work\chi.txt | New-ISERemoteTab -credential mydomain\administrator</dev:code>
+<dev:code>PS C:\&gt; Get-Content c:\work\chi.txt | New-ISERemoteTab -credential mydomain\administrator</dev:code>
 <dev:remarks><maml:para>Create remote tabs for each computer in the list using alternate credentials. This is also the type of command that you could put in your ISE profile script to autocreate remote tabs.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteTab dmz-srv01,dmz-srv02,dmz-srv03 -prompt</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteTab dmz-srv01,dmz-srv02,dmz-srv03 -prompt</dev:code>
 <dev:remarks><maml:para>Create remote tabs for each computer and prompt for a unique set of credentials for each.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteTab dmz-srv01 -Credential domain\administrator -Authentication CredSSP</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteTab dmz-srv01 -Credential domain\administrator -Authentication CredSSP</dev:code>
 <dev:remarks><maml:para>Create a remote tab for dmz-srv01 with alternate credentials using CredSSP for authentication.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 5 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteTab dmz-srv01 -ConfigurationName Microsoft.Powershell32</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteTab dmz-srv01 -ConfigurationName Microsoft.Powershell32</dev:code>
 <dev:remarks><maml:para>Create a remote tab for dmz-srv01 using the 32-bit configuration settings. The display name for this tab would be "dmz-srv01 Microsoft.Powershell32".
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 6 --------------------------</maml:title>
-<dev:code>PS C:\> New-ISERemoteTab chi-core01,chi-core02 -profile c:\scripts\remote.ps1</dev:code>
+<dev:code>PS C:\&gt; New-ISERemoteTab chi-core01,chi-core02 -profile c:\scripts\remote.ps1</dev:code>
 <dev:remarks><maml:para>Create remote tabs for computers CHI-CORE01 and CHI-CORE02. Upon connection remotely run the commands in the local file c:\scripts\remote.ps1.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>-------------------------- EXAMPLE 7 --------------------------</maml:title>
-<dev:code>PS C:\> import-csv s:\computers.csv | where { test-wsman $_.computername -ErrorAction SilentlyContinue} | Out-GridView -Title "Select computers" -OutputMode Multiple | New-ISERemoteTab -Profile S:\RemoteProfile.ps1</dev:code>
+<dev:code>PS C:\&gt; import-csv s:\computers.csv | where { test-wsman $_.computername -ErrorAction SilentlyContinue} | Out-GridView -Title "Select computers" -OutputMode Multiple | New-ISERemoteTab -Profile S:\RemoteProfile.ps1</dev:code>
 <dev:remarks><maml:para>Import a list of computers and filter those that respond to Test-WSMan. This list is then piped to Out-Gridview so that you can select one or more computers to connect to using a remote profile script and current credentials.
 </maml:para>
 </dev:remarks>
@@ -466,10 +425,9 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 <maml:navigationLink><maml:linkText>Test-WSMan</maml:linkText>
 <maml:uri></maml:uri>
 </maml:navigationLink>
-<maml:navigationLink><maml:linkText>Online Version:</maml:linkText>
+<maml:navigationLink><maml:linkText>New-ISERemoteForm</maml:linkText>
 <maml:uri></maml:uri>
 </maml:navigationLink>
 </command:relatedLinks>
 </command:command>
 </helpItems>
-
