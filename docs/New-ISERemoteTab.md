@@ -95,10 +95,10 @@ Type: String[]
 Parameter Sets: (All)
 Aliases: cn
 
-Required: True
+Required: true
 Position: 1
-Default value: 
-Accept pipeline input: True (ByPropertyName, ByValue)
+Default value: none
+Accept pipeline input: true (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
@@ -113,11 +113,11 @@ Type: Object
 Parameter Sets: Credential
 Aliases: RunAs, cred, c
 
-Required: False
-Position: Named
+Required: false
+Position: named
 Default value: [System.Management.Automation.PSCredential]::Empty
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -PromptForCredential
@@ -145,11 +145,11 @@ Type: String
 Parameter Sets: (All)
 Aliases: auth, am
 
-Required: False
-Position: Named
-Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: none
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -CertificateThumbprint
@@ -161,11 +161,11 @@ Type: String
 Parameter Sets: (All)
 Aliases: thumb
 
-Required: False
-Position: Named
-Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: none
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -ConfigurationName
@@ -176,11 +176,11 @@ Type: String
 Parameter Sets: (All)
 Aliases: 
 
-Required: False
-Position: Named
-Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: none
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -Port
@@ -193,11 +193,11 @@ Type: Int32
 Parameter Sets: (All)
 Aliases: 
 
-Required: False
-Position: Named
+Required: false
+Position: named
 Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -SessionOption
@@ -209,11 +209,11 @@ Type: PSSessionOption
 Parameter Sets: (All)
 Aliases: 
 
-Required: False
-Position: Named
-Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: none
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -UseSSL
@@ -225,11 +225,11 @@ Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: 
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: false
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ### -Profile
@@ -246,11 +246,11 @@ Type: String
 Parameter Sets: (All)
 Aliases: 
 
-Required: False
-Position: Named
-Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Required: false
+Position: named
+Default value: none
+Accept pipeline input: false
+Accept wildcard characters: false
 ```
 
 ## INPUTS
@@ -262,9 +262,9 @@ Accept wildcard characters: False
 ### none
 
 ## NOTES
-Last Updated: 30 March 2016  
+Last Updated: July 10, 2016 
 Author      : Jeff Hicks \(http://twitter.com/JeffHicks\)  
-Version     : 1.3.1  
+Version     : 1.5.0  
 
 Learn more about PowerShell:
 http://jdhitsolutions.com/blog/essential-powershell-resources/
@@ -281,6 +281,6 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 
 [Enter-PSSession]()
 [Test-WSMan]()
-[Online Version:]()
+[New-ISERemoteForm]()
 
 

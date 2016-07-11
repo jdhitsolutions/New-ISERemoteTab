@@ -45,7 +45,7 @@ PS C:\> New-ISERemoteForm
 ### None
 ## NOTES
 NAME        :  New-ISERemoteTabForm  
-LAST UPDATED:  May 4, 2016  
+LAST UPDATED:  July 10, 2016  
 AUTHOR      :  Jeff Hicks \(@JeffHicks\)
 
 Learn more about PowerShell:
@@ -59,7 +59,6 @@ DO NOT USE IT OUTSIDE OF A SECURE, TEST SETTING.
 ****************************************************************
 
 ## RELATED LINKS
-[New-ISERemoteTab](New-ISERemoteTab.md)
-[Online Version:]()
+[New-ISERemoteTab]()
 
 

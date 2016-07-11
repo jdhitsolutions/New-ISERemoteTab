@@ -181,7 +181,10 @@ Process {
     
             } #foreach command
         } #if profile script
-        
+        else {
+            $newtab.Invoke("clear-host")
+            
+        }
     } #Try
     Catch {
         Write-Warning "Can't create remote tab to $computer. $($_.exception.Message)."
