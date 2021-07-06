@@ -177,8 +177,8 @@
           <maml:name>ProfileScript</maml:name>
           <maml:description>
             <maml:para>Specify the path to a profile script file.</maml:para>
-            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
-            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.</maml:para>
+            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
+            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.</maml:para>
             <maml:para>Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -186,7 +186,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>$ISERemoteProfile</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>SessionOption</maml:name>
@@ -288,8 +288,8 @@
           <maml:name>ProfileScript</maml:name>
           <maml:description>
             <maml:para>Specify the path to a profile script file.</maml:para>
-            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
-            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.</maml:para>
+            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
+            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.</maml:para>
             <maml:para>Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -297,7 +297,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>$ISERemoteProfile</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PromptForCredential</maml:name>
@@ -364,8 +364,8 @@
           <maml:name>ProfileScript</maml:name>
           <maml:description>
             <maml:para>Specify the path to a profile script file.</maml:para>
-            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
-            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.</maml:para>
+            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
+            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.</maml:para>
             <maml:para>Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -373,7 +373,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>$ISERemoteProfile</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>VMName</maml:name>
@@ -406,8 +406,8 @@
           <maml:name>ProfileScript</maml:name>
           <maml:description>
             <maml:para>Specify the path to a profile script file.</maml:para>
-            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
-            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.</maml:para>
+            <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
+            <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.</maml:para>
             <maml:para>Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -415,7 +415,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>$ISERemoteProfile</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PromptForCredential</maml:name>
@@ -519,8 +519,8 @@
         <maml:name>ProfileScript</maml:name>
         <maml:description>
           <maml:para>Specify the path to a profile script file.</maml:para>
-          <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
-          <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.</maml:para>
+          <maml:para>hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.</maml:para>
+          <maml:para>You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.</maml:para>
           <maml:para>Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -528,7 +528,7 @@
           <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>$ISERemoteProfile</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>PromptForCredential</maml:name>

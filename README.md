@@ -59,9 +59,10 @@ $ISERemoteProfile = "C:\Scripts\RemoteProfile.ps1"
 $psise.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($Display,$Action,$shortcut) | Out-Null
 ```
 
+The console function, `New-ISERemoteTab` will also use the value of `$ISERemoteProfile` as its default value.
+
 A sample profile script, [SampleRemoteProfile.ps1](SampleRemoteProfile.ps1), is included with this module.
 
 ## Deprecation Notice
 
 This module should be considered in maintenance-mode. The PowerShell ISE should be considered deprecated. I will try to address bug fixes, but do not expect any other changes or enhancements to this module. If you like the concept of separate remoting sessions, you can achieve similar results with [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started).
-

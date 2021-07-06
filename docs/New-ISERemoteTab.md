@@ -15,7 +15,7 @@ Create remote tabs in the PowerShell ISE.
 ### ComputerCredential (Default)
 
 ```yaml
-New-ISERemoteTab -Computername <String[]> [-Credential <PSCredential>] [-Authentication <String>]  [-CertificateThumbprint <String>] [-ConfigurationName <String>] [-Port <Int32>]  [-SessionOption <PSSessionOption>] [-UseSSL] [-ProfileScript <String>] [<CommonParameters>]
+New-ISERemoteTab -Computername <String[]> [-Credential <PSCredential>] [-Authentication <String>]  [-CertificateThumbprint <String>] [-ConfigurationName <String>] [-Port <Int32>] [-SessionOption <PSSessionOption>] [-UseSSL] [-ProfileScript <String>] [<CommonParameters>]
 ```
 
 ### ComputerPrompt
@@ -231,9 +231,9 @@ Accept wildcard characters: False
 
 Specify the path to a profile script file.
 
-hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The form will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.
+hNormally, you do not have a traditional PowerShell profile script when you enter a remote PSSession. But you have the option to specify a profile script that will be executed in the remote session in place of a regular profile script. The command will look in your current session for a variable called ISERemoteProfile which is the path to a ps1 file with your remote profile script.
 
-You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox to store the current file in the variable.
+You can set this in your PowerShell ISE Profile script or you can use the Save script setting checkbox when running New-ISERemotTabForm to store the current file in the variable.
 
 Note that this variable is only for the length of your PowerShell session and does NOT update your ISE profile.
 
@@ -244,7 +244,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: $ISERemoteProfile
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

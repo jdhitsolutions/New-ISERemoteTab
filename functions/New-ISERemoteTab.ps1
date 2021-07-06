@@ -73,7 +73,7 @@ Function New-ISERemoteTab {
                     Throw "Cannot validate path $_"
                 }
             })]
-        [string]$ProfileScript
+        [string]$ProfileScript = $ISERemoteProfile
     )
 
     Begin {
@@ -223,7 +223,7 @@ Function New-ISERemoteTab {
                     }
                 } #Try
                 Catch {
-                    Write-Warning "Can't create remote tab to $computer. $($_.exception.Message)."
+                    Write-Warning "Can't create remote tab to $computer. $($_.exception.Message)"
                 }
             }) #foreach computer
 
